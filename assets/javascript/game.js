@@ -5,6 +5,7 @@ var animal = ["llama", "alligator", "iguana", "hedgehog", "raccoon", "moose", "r
 var secretWord = animal[Math.floor(Math.random() * animal.length)];
 var answerArray = [];
 var userLetterGuessed = [];
+var guessesLeft = 15
 
 
 // Display empty-string of the secret word
@@ -20,5 +21,11 @@ for (var i=0; i < secretWord.length;i++) {
 
 document.onkeyup = function (event){
     var userLetter = event.key;
+    for (var j = 0; j < secretWord.length;j++) {
+        if (secretWord[j] === userLetter){
+            answerArray[j] = userLetter;
+            document.getElementById("word-string").innerHTML = answerArray;
+        }
+      }
 }
 
