@@ -6,6 +6,7 @@ var secretWord = animal[Math.floor(Math.random() * animal.length)];
 var answerArray = [];
 var userLetterGuessed = [];
 var guessesLeft = 15
+var guessedCorrect = false
 
 
 // Display empty-string of the secret word
@@ -26,6 +27,14 @@ document.onkeyup = function (event){
             answerArray[j] = userLetter;
             document.getElementById("word-string").innerHTML = answerArray;
         }
+// If user letter is NOT in secretWord, then decrement guessesLeft by 1 and log the user letter to userLetterGuessed
+        else {
+            guessesLeft--;
+            userLetterGuessed.push(userLetter); 
+            document.getElementById("guesses-left").innerHTML = guessesLeft;
+            document.getElementById("words-guessed").innerHTML = userLetterGuessed;
+            break;
+        } 
       }
 }
 
